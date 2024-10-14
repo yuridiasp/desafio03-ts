@@ -1,39 +1,21 @@
-import { Box, Button, Center, Flex, Spacer, Text } from '@chakra-ui/react'
-import { useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { changeLocalStorage } from '../services/storage'
-import { AppContext } from './AppContext'
+import { Button, Flex, Heading } from "@chakra-ui/react"
+import { useContext } from "react"
 
-export const Header  = () => {
-  const { isLoggedIn, setIsLoggedIn } = useContext(AppContext)
-  const navigate = useNavigate()
+import { LogoDio } from "./LogoDio"
+import { AppContext } from "./AppContextProvider"
 
-  const logout = () => {
-    changeLocalStorage({ login: false})
-    setIsLoggedIn(false)
-    navigate('/')
-  }
+export const Header = () => {
 
-  return(
-    <Flex backgroundColor='orange' padding='5px'>
-      <Box>
-        <Center>
-          <Text fontSize='3xl'>Dio Bank</Text>
-        </Center>
-      </Box>
-      {
-        isLoggedIn && (
-          <>
-            <Spacer />
-            <Button
-              onClick={() => logout()}
-            >
-              Sair
-            </Button>
-          </>
-        )
-      }
-    </Flex>
-    
-  )
+    const context = useContext(AppContext)
+    console.log('Context do header', context)
+
+    return (
+        <Flex justifyContent={'space-between'} align={'center'} height={'10vh'} backgroundColor={'rgb(21, 21, 21)'} color={'#FFF'} padding={'0 50px'}>
+            <Flex align={'center'}>
+                <LogoDio width="98" height="40" />
+                <Heading size={'2xl'}>Bank</Heading>
+            </Flex>
+            <Button>Sair</Button>
+        </Flex>
+    )
 }

@@ -1,10 +1,11 @@
 import { Text } from "@chakra-ui/react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 
-export const ContaInfoPage = () => {
+export const Conta = () => {
+
     return (
         <>
-            <Link href={'/conta/1'}>
+            <Link to={'/conta/1'}>
                 <Text fontSize={'xl'} color={'white'}>
                     Conta
                 </Text>

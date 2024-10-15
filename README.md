@@ -1,50 +1,37 @@
-# React + TypeScript + Vite
+# Desenvolvendo o Dio Bank
+Repositório original: [Nathally Souza](https://github.com/nathyts)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#### Projeto desenvolvido com conceitos básicos de typescript
 
-Currently, two official plugins are available:
+### Tecnologias
+- Typescript
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Como rodar o projeto
 
-## Expanding the ESLint configuration
+1 - Clone o repositório
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+2 - Instale as dependeências
+    
+    npm install
 
-- Configure the top-level `parserOptions` property like this:
+3 - Execute o projeto
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+    npm start
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+#### Desafios
+[ ] Incluir validação da senha no campo de login
+  - Para logar, além do email faça a validação com a senha informada pelo usuário.
+  - Durante a implementação, aplique o TDD e escreva os testes unitários para a nova validação
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+[ ] Implemente um sistema de login com a Context API
+  - Seguindo os exemplos demonstrados ao longo do curso, crie um estado global para realizar o login
+  - Utilize o localStorage para armazenar os dados do usuário ao logar
+  - Caso os dados do usuário existam no localStorage, a tela de login não deve ser exibida
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+[ ] Crie uma página para exibir as informações do usuário
+  - Crie uma página onde será exibido o nome, email
+  - Esta página só poderá ser acessada caso a usuária esteja logada
+  - Caso a usuária não esteja logada, deve ser mantida na página com a tela de login
+  - Escreva os testes unitários para as funções criadas ou refatoradas.
+
+[ ] Fazer o deploy no Netlify e compartilhar o link da página

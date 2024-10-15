@@ -1,12 +1,13 @@
 import { api } from "../repositories/api"
 
 
-export async function login(email: string) {
+export async function login(email: string, password: string) {
+
     const data = await api
 
-    if (data.email !==  email) {
-        return alert('Email inválido!')
+    if (data.email !==  email || password !== data.password) {
+        return { loggedIn: false, user: '' }
     }
 
-    alert(`Seja bem vindo(a) ${email}!`)
+    return { user: data.name, loggedIn: true }
 }

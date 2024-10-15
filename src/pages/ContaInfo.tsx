@@ -14,8 +14,7 @@ export const ContaInfo = () => {
 
     const [userData, setUserData] = useState<IUserData>()
 
-    const context = useContext(AppContext)
-    console.log('Context da conta[id] ', context)
+    const { isLoggedIn } = useContext(AppContext)
     
     useEffect(() => {
         getData().then(data => {
@@ -24,9 +23,7 @@ export const ContaInfo = () => {
         })
     }, [])
     
-    if (userData && id !== userData.id) {
-        navigate('/')
-    }
+    !isLoggedIn && navigate('/')
 
     const actualData = new Date()
 

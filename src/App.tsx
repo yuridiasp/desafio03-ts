@@ -1,9 +1,12 @@
-import { Home } from './pages/Home'
+import { Login } from './pages/Login'
+import { createLocalStorage, getLocalStorage } from './services/storage'
 
 function App() {
 
+  !getLocalStorage() && createLocalStorage()
+
   return (
-    <Home />
+    <Login />
   )
 }
 

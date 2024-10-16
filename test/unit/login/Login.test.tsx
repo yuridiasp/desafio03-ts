@@ -21,14 +21,20 @@ describe('Testar função de Login', () => {
     window.alert = mockAlert
 
     const mockEmail = "yuri@gmail.com"
+    const mockSenha = "Teste@123"
 
-    it('Deve exibir um alert com boas vindas caso email seja válido', async () => {
-        const response = await login(mockEmail)
-        expect(response).toBeTruthy()
+    it('Deve exibir um alert com boas vindas caso email e senha sejam válidos', async () => {
+        const { loggedIn } = await login(mockEmail, mockSenha)
+        expect(loggedIn).toBeTruthy()
     })
 
-    it('Deve exibir um erro caso o email seja inválido', async () => {
-        const response = await login('email@invalido.com')
-        expect(response).toBeFalsy()
+    it('Deve exibir um alert caso senha seja inválida', async () => {
+        const { loggedIn } = await login(mockEmail, 'SenhaInvalida123')
+        expect(loggedIn).toBeFalsy()
+    })
+
+    it('Deve exibir um erro caso o email', async () => {
+        const { loggedIn } = await login('email@invalido.com', 'SenhaInvalida123')
+        expect(loggedIn).toBeFalsy()
     })
 })

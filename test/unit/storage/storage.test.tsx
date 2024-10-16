@@ -3,11 +3,13 @@ import { changeLocalStorage, createLocalStorage, getLocalStorage } from "../../.
 describe('Storage', () => {
 
     let moockDioBank = {
+        user: '',
         login: false
     }
 
     beforeEach(() => {
         moockDioBank = {
+            user: '',
             login: false
         }
     })

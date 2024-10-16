@@ -11,9 +11,9 @@ export const MainRoutes = () => {
 
     return (
         <Routes>
-            <Route path="/" element={<App />} />
+            <Route path="/" element={ isLoggedIn ? <ContaInfo /> : <App /> } />
             <Route path="conta" element={<Conta />} />
-            <Route path="conta/:id" element={ isLoggedIn ? <ContaInfo /> : <App />} />
+            <Route path="conta/:id" element={ isLoggedIn ? <ContaInfo /> : <App /> } />
         </Routes>
     )
 }
